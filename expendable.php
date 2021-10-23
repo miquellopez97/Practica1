@@ -2,7 +2,7 @@
 
 require_once './item.php'
 
-class expendable extends items
+class Expendable extends Items
 {
     protected $healthUp;
 

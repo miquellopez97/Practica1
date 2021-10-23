@@ -2,7 +2,7 @@
 
 require_once '/.expendable.php';
 
-class food extends expendable
+class Food extends Expendable
 {
     private $healthUp;
     private $foodUp;

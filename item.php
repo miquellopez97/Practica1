@@ -1,8 +1,13 @@
 <?php
 
-require_once './salleGaming.php'
+interface InterficieGaming
+{
+    public function getName();
+    public function setName($nameValue);
+    public function __toString();
+}
 
-abstract class item implements interficieGaming
+abstract class Item implements InterficieGaming
 {
     protected $nameValue;
     protected $size;
