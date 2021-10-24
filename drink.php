@@ -6,9 +6,7 @@ require_once './expendable.php'
 class Drink extends Expendable
 {
     private $drinkUp;
-    private $quantity;
-    //const max 250
-    define("MAXQUANTITY", 250);
+    private $quantity=250;
 
     public function __construct($size, $numberUses, $nameValue, $healthUp, $foodUp, $quantity)
     {

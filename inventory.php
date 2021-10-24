@@ -1,34 +1,28 @@
 <?php
 
-interface InterficieGaming
-{
-    public function getName();
-    public function setName($nameValue);
-    public function __toString();
-}
-
+require_once '/.salleGaming.php'
 class Inventory implements InterficiGaming
 {
-    private $itemsList;
-    private $maxX;
-    private $maxY;
+    private $itemsList = [][];
 
-    public function __constructor()
+    public function __constructor($maxX, $maxY)
     {
-        $this->maxX = [];
-        $this->maxY = [];
+        $this->itemsList = [$maxX][$maxY];
     }
 
-    public function remove()
+    public function remove($removeItem)
     {
+        $this->itemsList = array_diff($this->itemsList, array($removeItem));
     }
 
-    public function add()
+    public function add($newItem)
     {
+        array_push($this->itemsList, $newItem);
     }
 
     public function reordenar()
     {
+        sort($this->itemsList);
     }
 
 }

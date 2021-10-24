@@ -1,6 +1,6 @@
 <?php
 
-require_once '/.expendable.php';
+require_once '/.expendable.php'
 
 class Food extends Expendable
 {
@@ -16,10 +16,8 @@ class Food extends Expendable
 
     public function __toString()
     {
-
-        //TODO: REVISAR
-        return parent::__toString() + "The item is {$this->type}, the size is {$this->size} 
-        and remaining number of uses are {$this->numberUses}";
+        return parent::__toString() . `The item is {$this->type}, the size is {$this->size} 
+        and remaining number of uses are {$this->numberUses}`;
     }
 
     public function getFoodUp()

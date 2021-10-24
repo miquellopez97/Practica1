@@ -14,7 +14,7 @@ class Expendable extends Items
 
     public function __toString()
     {
-        return parent::__toString();
+        return parent::__toString() . `the life that adds to you is {$this->healthUp}`;
     }
 
     public function use($numberUses)
