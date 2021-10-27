@@ -43,6 +43,4 @@ class Food extends Expendable
             //Todo helper.errorHandler
         }
     }
-
-    
 }

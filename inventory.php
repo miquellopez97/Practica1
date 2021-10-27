@@ -24,5 +24,4 @@ class Inventory implements InterficiGaming
     {
         sort($this->itemsList);
     }
-
 }

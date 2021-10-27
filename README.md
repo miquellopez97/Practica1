@@ -6,3 +6,4 @@ TODOS:
 3.Finalizar las funciones de inventory
 4.Montar la clase players
 5.Montar toda la lógica
+6. Crear matriz de prueba, con numeros
