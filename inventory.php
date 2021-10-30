@@ -1,13 +1,26 @@
 <?php
 
-require_once '/.salleGaming.php'
-class Inventory implements InterficiGaming
+require_once '/.salleGaming.php';
+class Inventory implements InterficieGaming
 {
-    private $itemsList = [][];
+    private $itemsList;
+    private $name;
 
-    public function __constructor($maxX, $maxY)
+    public function __construct($maxX, $maxY)
     {
-        $this->itemsList = [$maxX][$maxY];
+        $this->itemList = array(); //check maxX i maxY
+        for ($x = 0; $x < $maxX; $x++) {
+            array_push($this->itemList, array());
+            for ($y = 0; $y < $maxY; $y++) {
+                array_push($this->itemList[$x], 1);
+            }
+        }
+        $this->name = "Mochila";
+    }
+
+    public function __toString()
+    {
+        print_r($this->itemList);
     }
 
     public function remove($removeItem)
@@ -23,5 +36,15 @@ class Inventory implements InterficiGaming
     public function reordenar()
     {
         sort($this->itemsList);
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function setName($playerName)
+    {
+        $this->name = $playerName;
     }
 }
