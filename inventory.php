@@ -1,10 +1,10 @@
 <?php
 
 require_once '/.salleGaming.php';
-class Inventory implements InterficieGaming
+
+class Inventory implements salleGaming
 {
     private $itemsList;
-    private $name;
 
     public function __construct($maxX, $maxY)
     {

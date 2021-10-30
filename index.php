@@ -1,7 +1,12 @@
 <?php
 
-require_once './test.php';
+require_once './player.php';
+require_once './inventory.php';
+require_once './food.php';
+require_once './drink.php';
+require_once './tool.php';
+require_once './medicine.php';
 
-$mochila = new test(5, 5);
+echo '<pre>';
 
-echo $mochila->__toString();
+echo '<pre>';
