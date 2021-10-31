@@ -15,7 +15,7 @@ $energuia = new Drink(1, 1, "Energy Drink", 30, 20, 250);
 $agua = new Drink(2, 3, "Water", 50, 60, 250);
 $powerade = new Drink(3, 5, "PowerAde", 25, 50, 250);
 
-$martillo = new Tool(2, 256, "Hammer", 50, false);
+$martillo = new Tool(2, 256, "Hammer", 50, true);
 $espada = new Tool(3, 256, "Sword", 80, false);
 $pistola = new Tool(2, 256, "Gun", 100, true);
 
@@ -24,9 +24,26 @@ $pilodra = new Medicine(1, 1, "Drug", 50, 0, 250);
 
 $mochila = new Inventory(5, 5);
 
-$maquinillas = new Player(100, 50, 50, $mochila, null, null, "Maquinillas");
+$player = new Player(100, 50, 50, $mochila, null, null, "Maravilla Navarro");
 
+echo '<h2>';
+echo 'Create Player';
+echo '</h2>';
 
 echo '<pre>';
-echo $maquinillas;
+echo $player;
+echo '<pre>';
+
+echo 'An enemy attacks our player with a ' . $espada->getName();
+
+$player->injury($espada->attack());
+
+echo '<h4>';
+echo 'Check HP';
+echo '</h4>';
+
+echo '<pre>';
+echo $player ->getHealth() . ' HP';
+echo '<br>';
+echo $player->healthCheck();
 echo '<pre>';

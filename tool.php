@@ -8,7 +8,7 @@ class Tool extends Item
     private $harmValue;
     private $isBroken;
 
-    public function __constructor($size, $numberUses, $nameValue, $harmValue, $isBroken)
+    public function __construct($size, $numberUses, $nameValue, $harmValue, $isBroken)
     {
         parent::__construct($size, $numberUses, $nameValue);
         $this->harmValue = $harmValue;
@@ -17,7 +17,7 @@ class Tool extends Item
 
     public function __toString()
     {
-        return parent::__toString();
+        return parent::__toString() . $this->harmValue . "and is {$this->isBroken}";
     }
 
     public function use($numberUses)
@@ -38,14 +38,11 @@ class Tool extends Item
     public function attack()
     {
         $randomNumber = rand(1, 100);
-        $hit = false;
 
-        if ($randomNumber > 1 || $randomNumber <= 75) {
-            $hit = true;
-            return $hit;
-            //Todo Metodo Injury de la clase player
+        if ($randomNumber < 75) {
+            return $this->harmValue;
         } else {
-            return $hit;
+            return 0;
         }
     }
 }

@@ -33,9 +33,15 @@ class Player implements salleGaming
         $this->playerName = $playerNameNewValue;
     }
 
+
+    public function getHealth()
+    {
+        return $this->healthLevel;
+    }
+
     public function __toString()
     {
-        return "Health: {$this->healthLevel} \nDrink level: {$this->drinkLevel} \nFood level: {$this->drinkLevel}";
+        return "Jugador: {$this->playerName} \nHealth: {$this->healthLevel} \nDrink level: {$this->drinkLevel} \nFood level: {$this->drinkLevel} \nRight Hand: {$this->rightObject} \nLeft Hand: {$this->leftObject}";
     }
 
     public function swapHands()
@@ -62,9 +68,9 @@ class Player implements salleGaming
         $this->healthLevel += $medicineItem->$healthUp;
     }
 
-    public function injury($toolItem)
+    public function injury($harm)
     {
-        $this->healthLevel -= $toolItem->harmValue;
+        $this->healthLevel -= $harm;
     }
 
     public function searchInventory($itemName)
@@ -78,20 +84,20 @@ class Player implements salleGaming
 
     public function healthCheck()
     {
-        switch ($this->healthLevel) {
-            case range(75, 100):
-                echo "vERY GOOD HEALTH!";
+        switch (true) {
+            case ($this->healthLevel >= 75):
+                echo "VERY GOOD HEALTH!";
                 break;
-            case range(50, 74):
+            case ($this->healthLevel >= 50 && $this->healthLevel <= 74):
                 echo "Health is good!";
                 break;
-            case range(25, 49):
+            case ($this->healthLevel >= 25 && $this->healthLevel <= 49):
                 echo "Regular health!";
                 break;
-            case range(1, 24):
+            case ($this->healthLevel >= 1 && $this->healthLevel <= 24):
                 echo "LOW HEALTH!";
                 break;
-            case 0:
+            case $this->healthLevel === 0:
                 echo "RIP";
                 break;
         }
