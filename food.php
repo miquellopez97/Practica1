@@ -1,6 +1,6 @@
 <?php
 
-require_once '/.expendable.php'
+require_once './expendable.php';
 
 class Food extends Expendable
 {
@@ -40,7 +40,7 @@ class Food extends Expendable
         if ($valueFoodUp === "meat" || $valueFoodUp === "plant") {
             $this->type = $valueType;
         } else {
-            //Todo helper.errorHandler
+            echo "No es meat/plant";
         }
     }
 }

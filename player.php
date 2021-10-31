@@ -45,29 +45,35 @@ class Player implements salleGaming
         $this->rightObject = $aux;
     }
 
-    public function drink()
+    public function drink($drinkItem)
     {
-
+        $this->healthLevel += $drinkItem->$healthUp;
+        $this->drinkLevel += $drinkItem->$drinkUp;
     }
 
-    public function eat()
+    public function eat($foodItem)
     {
-        
+        $this->healthLevel += $foodItem->$healthUp;
+        $this->foodLevel += $foodItem->$foodUp;
     }
 
-    public function takeMedicine($heal)
+    public function takeMedicine($medicineItem)
     {
-        $this->healthLevel += $heal;
+        $this->healthLevel += $medicineItem->$healthUp;
     }
 
-    public function injury($dmg)
+    public function injury($toolItem)
     {
-        $this->healthLevel -= $dmg;
+        $this->healthLevel -= $toolItem->harmValue;
     }
 
-    public function searchInventory()
+    public function searchInventory($itemName)
     {
-        
+        if ($this->inventory[$itemName]) {
+            echo $this->inventory[$itemName];
+        } else {
+            echo 'No existe el item';
+        }
     }
 
     public function healthCheck()
@@ -91,17 +97,21 @@ class Player implements salleGaming
         }
     }
 
-    public function moveToHand($hand)
+    public function moveToHand($hand, $itemName)
     {
-        if($hand === 'left'){
-            $this->inventory
-        }else{
-
+        if ($hand === 'left') {
+            $this->leftObject = $this->inventory[$itemName];
+        } else {
+            $this->rightObject = $this->inventory[$itemName];
         }
     }
 
-    public function moveToInventory()
+    public function moveToInventory($hand)
     {
-        
+        if ($hand === 'left') {
+            array_push($this->inventory, $this->leftObject);
+        } else {
+            array_push($this->inventory, $this->rightObject);
+        }
     }
 }

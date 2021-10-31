@@ -1,8 +1,8 @@
 <?php
 
-require_once './item.php'
+require_once './item.php';
 
-class Tool extends Items
+class Tool extends Item
 {
     private $maxUses = 256;
     private $harmValue;

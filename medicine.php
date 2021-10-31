@@ -1,6 +1,6 @@
 <?php
 
-require_once './expendable.php'
+require_once './expendable.php';
 
 class Medicine extends Expendable
 {

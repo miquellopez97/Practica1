@@ -1,10 +1,10 @@
 <?php
 
-require_once './item.php'
+require_once './item.php';
 
-class Expendable extends Items
+class Expendable extends Item
 {
-    protected $healthUp;
+    private $healthUp;
 
     public function __constructor($size, $numberUses, $nameValue, $healthUp)
     {

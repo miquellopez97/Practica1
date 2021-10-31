@@ -1,6 +1,6 @@
 <?php
 
-require_once '/.salleGaming.php';
+require_once './salleGaming.php';
 
 class Inventory implements salleGaming
 {

@@ -1,6 +1,6 @@
 <?php
 
-require_once './expendable.php'
+require_once './expendable.php';
 
 
 class Drink extends Expendable
@@ -8,7 +8,7 @@ class Drink extends Expendable
     private $drinkUp;
     private $quantity = 250;
 
-    public function __construct($size, $numberUses, $nameValue, $healthUp, $foodUp, $quantity)
+    public function __construct($size, $numberUses, $nameValue, $healthUp, $drinkUp, $quantity)
     {
         parent::__construct($size, $numberUses, $nameValue);
         $this->drinkUp = $drinkUp;

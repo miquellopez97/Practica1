@@ -9,7 +9,7 @@ abstract class Item implements salleGaming
     protected $size;
     protected $numberUses;
 
-    protected function __construct($size, $numberUses, $nameValue)
+    public function __construct($size, $numberUses, $nameValue)
     {
         $this->nameValue = $nameValue;
         $this->size = $size;
