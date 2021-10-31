@@ -55,14 +55,14 @@ class Player implements salleGaming
         
     }
 
-    public function takeMedicine()
+    public function takeMedicine($heal)
     {
-        
+        $this->healthLevel += $heal;
     }
 
-    public function injury()
+    public function injury($dmg)
     {
-        
+        $this->healthLevel -= $dmg;
     }
 
     public function searchInventory()
@@ -91,9 +91,13 @@ class Player implements salleGaming
         }
     }
 
-    public function moveToHand()
+    public function moveToHand($hand)
     {
-        
+        if($hand === 'left'){
+            $this->inventory
+        }else{
+
+        }
     }
 
     public function moveToInventory()

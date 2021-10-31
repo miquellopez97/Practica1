@@ -4,7 +4,7 @@ require_once './item.php'
 
 class Tool extends Items
 {
-    define("MAXUSES", 256);
+    private $maxUses = 256;
     private $harmValue;
     private $isBroken;
 
