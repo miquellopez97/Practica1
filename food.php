@@ -9,7 +9,7 @@ class Food extends Expendable
     private $type;
 
     public function __construct($size, $numberUses, $nameValue, $healthUp, $foodUp, $type){
-        parent::__construct($size, $numberUses, $nameValue);
+        parent::__construct($size, $numberUses, $nameValue, $healthUp);
         $this->foodUp = $foodUp;
         $this->type = $type;
     }
@@ -37,7 +37,7 @@ class Food extends Expendable
 
     public function setType($valueType)
     {
-        if ($valueFoodUp === "meat" || $valueFoodUp === "plant") {
+        if ($valueType === "meat" || $valueType === "plant") {
             $this->type = $valueType;
         } else {
             echo "No es meat/plant";

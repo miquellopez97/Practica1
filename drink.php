@@ -10,14 +10,14 @@ class Drink extends Expendable
 
     public function __construct($size, $numberUses, $nameValue, $healthUp, $drinkUp, $quantity)
     {
-        parent::__construct($size, $numberUses, $nameValue);
+        parent::__construct($size, $numberUses, $nameValue, $healthUp);
         $this->drinkUp = $drinkUp;
         $this->quantity = $quantity;
     }
 
     public function __toString()
     {
-        return parent::__toString() + "You drink {$this->quantity} powerUps. You still have {$this->numberUses}";
+        return parent::__toString() . "You drink {$this->quantity} powerUps. You still have {$this->numberUses}";
     }
 
     public function getDrinkUp()

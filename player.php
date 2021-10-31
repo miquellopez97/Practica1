@@ -41,7 +41,7 @@ class Player implements salleGaming
 
     public function __toString()
     {
-        return "Jugador: {$this->playerName} \nHealth: {$this->healthLevel} \nDrink level: {$this->drinkLevel} \nFood level: {$this->drinkLevel} \nRight Hand: {$this->rightObject} \nLeft Hand: {$this->leftObject}";
+        return "Jugador: {$this->playerName} \nHealth: {$this->healthLevel} \nDrink level: {$this->drinkLevel} \nFood level: {$this->foodLevel} \nRight Hand: {$this->rightObject} \nLeft Hand: {$this->leftObject}";
     }
 
     public function swapHands()
@@ -51,21 +51,36 @@ class Player implements salleGaming
         $this->rightObject = $aux;
     }
 
-    public function drink($drinkItem)
+    public function drink($drink, $health)
     {
-        $this->healthLevel += $drinkItem->$healthUp;
-        $this->drinkLevel += $drinkItem->$drinkUp;
+        $this->healthLevel += $health;
+        if ($this->healthLevel > 100) {
+            $this->healthLevel = 100;
+        }
+        $this->drinkLevel += $drink;
+        if ($this->drinkLevel > 100) {
+            $this->drinkLevel = 100;
+        }
     }
 
-    public function eat($foodItem)
+    public function eat($food, $health)
     {
-        $this->healthLevel += $foodItem->$healthUp;
-        $this->foodLevel += $foodItem->$foodUp;
+        $this->healthLevel += $health;
+        if ($this->healthLevel > 100) {
+            $this->healthLevel = 100;
+        }
+        $this->foodLevel += $food;
+        if ($this->foodLevel > 100) {
+            $this->foodLevel = 100;
+        };
     }
 
-    public function takeMedicine($medicineItem)
+    public function takeMedicine($heal)
     {
-        $this->healthLevel += $medicineItem->$healthUp;
+        $this->healthLevel += $heal;
+        if ($this->healthLevel > 100) {
+            $this->healthLevel = 100;
+        }
     }
 
     public function injury($harm)
@@ -73,20 +88,11 @@ class Player implements salleGaming
         $this->healthLevel -= $harm;
     }
 
-    public function searchInventory($itemName)
-    {
-        if ($this->inventory[$itemName]) {
-            echo $this->inventory[$itemName];
-        } else {
-            echo 'No existe el item';
-        }
-    }
-
     public function healthCheck()
     {
         switch (true) {
             case ($this->healthLevel >= 75):
-                echo "VERY GOOD HEALTH!";
+                echo " Very good health!";
                 break;
             case ($this->healthLevel >= 50 && $this->healthLevel <= 74):
                 echo "Health is good!";
@@ -95,10 +101,13 @@ class Player implements salleGaming
                 echo "Regular health!";
                 break;
             case ($this->healthLevel >= 1 && $this->healthLevel <= 24):
-                echo "LOW HEALTH!";
+                echo "Critical condition!";
                 break;
             case $this->healthLevel === 0:
-                echo "RIP";
+                echo "R.I.P!";
+                break;
+            default:
+                echo "Something is wrong";
                 break;
         }
     }
@@ -106,18 +115,35 @@ class Player implements salleGaming
     public function moveToHand($hand, $itemName)
     {
         if ($hand === 'left') {
-            $this->leftObject = $this->inventory[$itemName];
+            $this->leftObject = $itemName;
         } else {
-            $this->rightObject = $this->inventory[$itemName];
+            $this->rightObject = $itemName;
         }
     }
 
     public function moveToInventory($hand)
     {
         if ($hand === 'left') {
-            array_push($this->inventory, $this->leftObject);
+            $this->inventory->add($this->leftObject);
         } else {
-            array_push($this->inventory, $this->rightObject);
+            $this->inventory->add($this->rightObject);
+        }
+    }
+
+    public function searchInventory($itemName)
+    {
+        $flagFind = false;
+
+        for ($i = 0; $i < 5; $i++) {
+            for ($j = 0; $j < 5; $j++) {
+                if ($this->inventory[$i][$j] != null && $this->inventory[$i][$j][0]->getName() === $itemName->getName() && !$flag) {
+                    $flagFind = true;
+                }
+            }
+        }
+
+        if ($flagFind) {
+            echo 'trobat';
         }
     }
 }

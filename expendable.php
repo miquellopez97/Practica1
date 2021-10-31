@@ -6,7 +6,7 @@ class Expendable extends Item
 {
     private $healthUp;
 
-    public function __constructor($size, $numberUses, $nameValue, $healthUp)
+    public function __construct($size, $numberUses, $nameValue, $healthUp)
     {
         parent::__construct($size, $numberUses, $nameValue);
         $this->healthUp = $healthUp;

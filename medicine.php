@@ -5,9 +5,9 @@ require_once './expendable.php';
 class Medicine extends Expendable
 {
 
-    public function __construct($size, $numberUses, $nameValue, $healthUp, $foodUp, $quantity)
+    public function __construct($size, $numberUses, $nameValue, $healthUp)
     {
-        parent::__construct($size, $numberUses, $nameValue);
+        parent::__construct($size, $numberUses, $nameValue, $healthUp);
     }
 
     public function __toString()
